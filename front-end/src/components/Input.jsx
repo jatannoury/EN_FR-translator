@@ -1,15 +1,17 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react'
 
-const Input = ({ placeholder }) => {
-  const [firstName, setFirstName] = useState("");
+const Input = ({ placeholder, setFormData,formData }) => {
   let placeholder_id = placeholder.replace(" ", "");
   placeholder_id =
-    placeholder_id.charAt(0).toUpperCase() + placeholder_id.slice(1);
-  const handleFirstName = (e) => {
-    setFirstName(e.target.value);
-    console.log(11);
+    placeholder_id.charAt(0).toLowerCase() + placeholder_id.slice(1);
+  const handleInputChange = (e) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [[placeholder_id]]: e.target.value.toString(),
+    }));
   };
+  
+
   return (
     <div className="input_component">
       <label htmlFor="input_component">{placeholder}</label>
@@ -17,19 +19,18 @@ const Input = ({ placeholder }) => {
         <input
           type="text"
           placeholder={placeholder}
-          value={firstName}
-          onChange={handleFirstName}
+          onChange={handleInputChange}
           id={placeholder_id}
         ></input>
       ) : placeholder === "Birthday" ? (
-        <input type="date" className="birthday" />
+        <input type="date" className="birthday" onChange={handleInputChange}/>
       ) : (
         <div className="radio-container">
-          <input type="radio" id="male" name="gender" value="male" />
+          <input type="radio" id="male" name="gender" value="male" onChange={handleInputChange}/>
           <label for="male" className="gender_label">
             Male
           </label>
-          <input type="radio" id="female" name="gender" value="female" />
+          <input type="radio" id="female" name="gender" value="female" onChange={handleInputChange}/>
           <label for="female" className="gender_label">
             Female
           </label>
@@ -39,4 +40,4 @@ const Input = ({ placeholder }) => {
   );
 };
 
-export default Input;
+export default Input
