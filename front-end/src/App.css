@@ -1,0 +1,81 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+
+}
+
+#root {
+  height: 100%;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #f8eefa, #a174bb);
+  height: 100%;
+}
+
+.login_container{
+  width:30%;
+  height:60%;
+  border-radius: 15px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 100px rgba(0, 0, 0, 0.2);;
+}
+
+.login_container label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: Outfit,sans-serif;
+  font-size: 20px;
+  color:#c99ee2;
+
+  
+}
+
+.login_container input {
+  height: 30px;
+  border-radius: 7px;
+  border: 2px solid #c99ee2;
+;
+
+}
+
+.input_component{
+  padding-left: 100px
+}
+
+.form_elements{
+  
+}
+input{
+  padding: 8px;
+  outline: none;
+  color:#c99ee2;
+  font-size: 16px;
+
+}
+input::placeholder{
+  padding-left: 2px;
+  color:#c99ee2;
+  opacity: 0.9;
+  font-size: 16px;
+  
+}
+input:focus{
+  border-color: #ccc;
+}
+.sign_up{
+  padding: 70px 0 20px 100px;
+  color:#c99ee2;
+  margin: 0;
+  font-family: Outfit,sans-serif;
+}
+.sign_up_text{
+  padding-left: 10px;
+}
+.sing_up_icon{
+  color: #c99ee2;
+}
