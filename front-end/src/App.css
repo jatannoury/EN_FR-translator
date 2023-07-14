@@ -1,0 +1,147 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #f8eefa, #a174bb);
+  height: 100%;
+}
+
+.signup_container {
+  width: 35%;
+  height: 60%;
+  border-radius: 15px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 100px rgba(0, 0, 0, 0.2);
+}
+.form_inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10%;
+}
+
+.signup_container label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: Outfit, sans-serif;
+  font-size: 20px;
+  color: #c99ee2;
+}
+
+.signup_container input {
+  height: 30px;
+  border-radius: 7px;
+  border: 2px solid #c99ee2;
+}
+
+input {
+  padding: 8px;
+  outline: none;
+  color: #c99ee2;
+  font-size: 16px;
+  width: 90%;
+}
+input::placeholder {
+  padding-left: 2px;
+  color: #c99ee2;
+  opacity: 0.9;
+  font-size: 16px;
+}
+input:focus {
+  border-color: #ccc;
+}
+.input_component{
+  width:50%
+}
+.sign_up {
+  padding: 70px 0 0px 0px;
+  color: #c99ee2;
+  margin: 0;
+  font-family: Outfit, sans-serif;
+  
+}
+.sign_up_text {
+  padding-left: 10px;
+}
+.sing_up_icon {
+  color: #c99ee2;
+}
+.row {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  gap: 20px;
+  width: 85%;
+}
+.birthday {
+ width: 90%;;
+  color: #c99ee2;
+}
+.radio-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+}
+.gender_label {
+  padding-top: 13px;
+  padding-left: 5px;
+  padding-right: 25px;
+  font-size: 24px;
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+}
+input[type="radio"]:checked {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  border: 0px solid #c99ee2;
+  background-color: #c99ee2;
+  outline: none; /* Remove the default focus outline */
+}
+input[type="submit"] {
+  height: 50px;
+  width: 80%;
+  background-color: white;
+  margin-top: 10%;
+  color: white;
+  background-color: #c99ee2;
+  margin-top: 30%;
+
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: #c99ee2;
+  box-shadow: 10px 10px 50px rgba(201, 158, 226, 1);
+}
+.submit_row{
+  
+}
+@media (max-height: 868px) {
+    .sign_up {
+    padding: 50px 0 0px 0px;
+  }
+  .row{
+    margin-top: 10px;
+  }
+}
