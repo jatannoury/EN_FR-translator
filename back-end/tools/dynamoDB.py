@@ -6,6 +6,8 @@ import uuid
 from passlib.context import CryptContext
 from dotenv import load_dotenv
 
+from tools.decrypt import aes_decrypt_string
+
 load_dotenv()
 
 class DynamoDbHandler:
@@ -24,11 +26,9 @@ class DynamoDbHandler:
 
     def post_user_table(self,formData) -> str:
         try:
-            print(formData)
             user_data = formData.__dict__
             user_data['userId'] = str(uuid.uuid4())
-            user_data['password'] = self.encrypt_password(user_data['password'])
-            print(self.encrypt_password(user_data['password']))
+            user_data['password'] = self.encrypt_password(aes_decrypt_string(user_data['password']))
             self.users_table.put_item(Item=user_data)
             return "Created"
         except Exception as e:
