@@ -60,15 +60,14 @@ input::placeholder {
 input:focus {
   border-color: #ccc;
 }
-.input_component{
-  width:50%
+.input_component {
+  width: 50%;
 }
 .sign_up {
   padding: 70px 0 0px 0px;
   color: #c99ee2;
   margin: 0;
   font-family: Outfit, sans-serif;
-  
 }
 .sign_up_text {
   padding-left: 10px;
@@ -84,7 +83,7 @@ input:focus {
   width: 85%;
 }
 .birthday {
- width: 90%;;
+  width: 90%;
   color: #c99ee2;
 }
 .radio-container {
@@ -120,13 +119,11 @@ input[type="radio"]:checked {
 }
 input[type="submit"] {
   height: 50px;
-  width: 80%;
   background-color: white;
   margin-top: 10%;
   color: white;
   background-color: #c99ee2;
-  margin-top: 30%;
-
+  margin-top: 20%;
 }
 
 input[type="submit"]:hover {
@@ -134,14 +131,72 @@ input[type="submit"]:hover {
   color: #c99ee2;
   box-shadow: 10px 10px 50px rgba(201, 158, 226, 1);
 }
-.submit_row{
+.submit_row {
+}
+
+.password_container {
+  display: flex;
+  align-items: center;
+}
+.input_component .password_input {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.eye_icon {
+  border: 2px solid #c99ee2;
+  height: 30px;
+  border-left: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color:#c99ee2
+}
+
+.link_to_sign_in{
+  text-decoration: none;
+  color:#c99ee2;
+  padding-top: 10px;
+}
+.link_to_sign_in:hover{
+  text-decoration: underline;
+  color:#b364e0;
   
 }
+.row.sign_in{
+  width: 100%;
+}
+.input_component.sign_in{
+    width: 90%;
+}
+.input_component.submit.sign_in{
+  width: 92%;
+  margin-top: 0;
+}
+.input_component.submit.sign_up{
+  width: 43%;
+}
+.row.password.sign_in{
+  width: 95%;
+}
+.sign_up.sign_in{
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
 @media (max-height: 868px) {
-    .sign_up {
+  .sign_up {
     padding: 50px 0 0px 0px;
   }
-  .row{
+  .row {
     margin-top: 10px;
   }
 }

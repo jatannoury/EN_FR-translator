@@ -17,11 +17,16 @@ class Axios {
         console.error(error);
       });
   }
-  register(formData){
-    this.axios_object
-      .post("/register", formData)
+  async register(formData){
+    return this.axios_object
+      .post("/users/register", formData)
       .then((response) => {
-        console.log(response.data);
+        if (response.status ===201){
+          return 201
+        }
+        else{
+          return response.status
+        }
       })
       .catch((error) => {
         console.error(error);

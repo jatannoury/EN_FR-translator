@@ -1,6 +1,10 @@
 import React from "react";
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
-const Input = ({ placeholder, setFormData, formData }) => {
+import { useState } from "react";
+
+const Input = ({ placeholder, setFormData, formData,signIn }) => {
+  const [showPassword, setShowPassword] = useState(false);
   let placeholder_id = placeholder.replace(" ", "");
   placeholder_id =
     placeholder_id.charAt(0).toLowerCase() + placeholder_id.slice(1);
@@ -11,17 +15,26 @@ const Input = ({ placeholder, setFormData, formData }) => {
       [placeholder_id]: e.target.value.toString(),
     }));
   };
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
-    <div className="input_component">
+    <div className={`input_component ${signIn === true ? ' sign_in' : ''}`}>
       <label htmlFor={placeholder_id}>{placeholder}</label>
       {placeholder === "Password" ? (
-        <input
-          type="password"
-          placeholder={placeholder}
-          onChange={handleInputChange}
-          id={placeholder_id}
-        />
+        <div className="password_container">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder={placeholder}
+            onChange={handleInputChange}
+            id={placeholder_id}
+            className="password_input"
+          />
+          <div onClick={handleTogglePassword} className="eye_icon">
+            {showPassword === true ? <FaEye /> : <FaEyeSlash />}
+          </div>
+        </div>
       ) : placeholder === "Birthday" ? (
         <input type="date" className="birthday" onChange={handleInputChange} />
       ) : placeholder === "Gender" ? (
