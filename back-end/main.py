@@ -2,11 +2,10 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from tools.dynamoDB import DynamoDbHandler
 from routes import routers
 
 app = FastAPI()
-dynamoDB_handler = DynamoDbHandler()
+
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,

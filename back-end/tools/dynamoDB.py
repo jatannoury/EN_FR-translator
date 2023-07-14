@@ -22,15 +22,36 @@ class DynamoDbHandler:
 
     # Password encryption function
     def encrypt_password(self,password: str) -> str:
-        return self.pwd_context.hash(password)
+        encrypted_pass = self.pwd_context.hash(password)
+        return encrypted_pass
+
+    def verify_password(self,password: str, hashed_password: str) -> bool:
+        pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+        return pwd_context.verify(password, hashed_password)
 
     def post_user_table(self,formData) -> str:
         try:
             user_data = formData.__dict__
             user_data['userId'] = str(uuid.uuid4())
-            user_data['password'] = self.encrypt_password(aes_decrypt_string(user_data['password']))
+            user_data['password'] = self.encrypt_password(user_data['password'])
             self.users_table.put_item(Item=user_data)
             return "Created"
+        except Exception as e:
+            print(e)
+            raise HTTPException(status_code=500, detail="Internal Server Error")
+
+    def get_user_info(self,user_email) -> str:
+        try:
+            filter_expression = 'email = :user_email'
+            expression_attribute_values = {
+                ":user_email": user_email
+            }
+            return self.users_table.scan(
+                FilterExpression=filter_expression,
+                ExpressionAttributeValues=expression_attribute_values
+            )
+
+
         except Exception as e:
             print(e)
             raise HTTPException(status_code=500, detail="Internal Server Error")
