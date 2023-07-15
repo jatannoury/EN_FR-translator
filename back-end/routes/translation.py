@@ -39,4 +39,16 @@ def save_translation(translation_id:str = Query(..., description="translation_id
     except:
         return Response(status_code=500)
 
+@router.get("/history", status_code=200)
+def get_history(user_id:str = Query(..., description="user_id")):
+    try:
+        response = dynamoDB_handler.query_history_table(user_id=user_id)
+        if response['ResponseMetadata']['HTTPStatusCode']==200:
+            return response
+        else:
+            return Response(status_code=500)
+
+    except:
+        return Response(status_code=500)
+
 
