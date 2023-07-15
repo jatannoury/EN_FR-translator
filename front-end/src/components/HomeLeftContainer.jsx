@@ -10,7 +10,10 @@ const HomeLeftContainer = ({
   setRightContainerCaller,
   toggleRightContainer,
   rightContainerCaller,
+  handleToggleRightContainer,
   user_id,
+  history,
+  setHistory,
 }) => {
   const [frenchText, setFrenchText] = useState("");
   const [englishText, setEnglishText] = useState("");
@@ -43,6 +46,14 @@ const HomeLeftContainer = ({
     axiosInstance.save_translation(translationId).then((res) => {
       if (res.status === 200) {
         toast.success(res.data[0]["message"]);
+        const updatedArrayOfDicts = [...history].map((dict) => {
+          if (dict["translation_id"] === translationId) {
+            return { ...dict, saved: dict["saved"] === 0 ? 1 : 0 }; // Create a new object with updated `saved` value
+          }
+          return dict; // Return the original object for other dictionaries
+        });
+
+        setHistory(updatedArrayOfDicts);
       } else {
         toast.error("Server Error");
       }
@@ -91,6 +102,7 @@ const HomeLeftContainer = ({
           setRightContainerCaller={setRightContainerCaller}
           rightContainerCaller={rightContainerCaller}
           handleTranslate={handleTranslate}
+          handleToggleRightContainer={handleToggleRightContainer}
         />
       </div>
     </>

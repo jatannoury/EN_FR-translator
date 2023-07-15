@@ -7,25 +7,34 @@ const HomeButtons = ({
   setRightContainerCaller,
   rightContainerCaller,
   handleTranslate,
+  handleToggleRightContainer,
 }) => {
-  const handleHistory = (e) => {
-    if (rightContainerCaller === "") {
+  const handleHistory = async (e) => {
+    if (
+      rightContainerCaller !== "History" &&
+      rightContainerCaller !== "Saved"
+    ) {
+      console.log(0);
+      await setRightContainerCaller("History");
       setToggleRightContainer(true);
-      setRightContainerCaller("History");
+      handleToggleRightContainer("History");
     } else if (rightContainerCaller === "History") {
-      setToggleRightContainer(false);
+      console.log(1);
       setRightContainerCaller("");
+      setToggleRightContainer(false);
     } else {
+      console.log(2);
       setRightContainerCaller("History");
+      handleToggleRightContainer("History");
     }
   };
   const handleSaved = (e) => {
     if (rightContainerCaller === "") {
-      setToggleRightContainer(true);
       setRightContainerCaller("Saved");
+      setToggleRightContainer(true);
     } else if (rightContainerCaller === "Saved") {
-      setToggleRightContainer(false);
       setRightContainerCaller("");
+      setToggleRightContainer(false);
     } else {
       setRightContainerCaller("Saved");
     }

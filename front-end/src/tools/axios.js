@@ -70,6 +70,20 @@ class Axios {
         return 500;
       });
   }
+  async get_history(user_id){
+    return this.axios_object
+      .get(`/translate/history?user_id=${user_id}`)
+      .then((response) => {
+        console.log(response);
+        if (response.status !== 200) {
+          return 500;
+        }
+        return response;
+      })
+      .catch((error) => {
+        return 500;
+      });
+  }
 }
 const axiosInstance = new Axios();
 
