@@ -15,6 +15,7 @@ app.add_middleware(
 )
 
 app.include_router(routers['users'], prefix='/users')
+app.include_router(routers['translation'], prefix='/translate')
 @app.get("/")
 def ping():
     return {"message": "Ok"}

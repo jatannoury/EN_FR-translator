@@ -1,6 +1,8 @@
 from http.client import HTTPException
 
 from fastapi import  APIRouter
+
+from models.sign_in import SignIn
 from models.user import User
 from tools.dynamoDB import DynamoDbHandler
 
@@ -14,7 +16,7 @@ def sign_up(formData: User):
     return {"message": "User created successfully!"}
 
 @router.post("/login", status_code=200)
-def sign_in(formData: User):
+def sign_in(formData: SignIn):
     user_info = formData.__dict__
     db_response = dynamoDB_handler.get_user_info(user_info['email'])
     pass_verification = dynamoDB_handler.verify_password(user_info['password'],db_response['Items'][0]['password'])
