@@ -21,6 +21,6 @@ def sign_in(formData: SignIn):
     db_response = dynamoDB_handler.get_user_info(user_info['email'])
     pass_verification = dynamoDB_handler.verify_password(user_info['password'],db_response['Items'][0]['password'])
     if pass_verification:
-        return {"message":"Correct credentials"}
+        return {"message":"Correct credentials","user_info":db_response}
     else:
         raise HTTPException(status_code=401, detail="Wrong credentials")
