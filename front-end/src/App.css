@@ -13,6 +13,7 @@ body {
   align-items: center;
   background-image: linear-gradient(to bottom, #f8eefa, #705cc9);
   height: 100%;
+  width: 100%;
 }
 
 .signup_container {
