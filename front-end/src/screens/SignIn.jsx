@@ -12,12 +12,14 @@ const SignIn = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     axiosInstance.sign_in(formData).then((res) => {
-      if (res === 200) {
+      console.log(res);
+
+      if (res.status === 200) {
         toast.success("Logged In!");
         setTimeout(() => {
-          navigate("/Home");
+          navigate(`/Home/${res.data['user_info']['Items'][0]['userId']}`);
         }, 1000);
       } else {
         toast.error("Wrong Credentials");

@@ -31,20 +31,36 @@ class Axios {
       });
   }
   async sign_in(formData) {
+    console.log("formData", formData);
     return this.axios_object
       .post("/users/login", formData)
       .then((response) => {
         console.log(response);
-        return response.status;
+        return response;
       })
       .catch((error) => {
         console.error(error);
       });
   }
-  async translate(input_text) {
+  async translate(request_data) {
     return this.axios_object
-      .get(`/translate/en_fr?text=${input_text}`)
+      .post(`/translate/en_fr`, request_data)
       .then((response) => {
+        console.log(response)
+        if (response.status !== 201) {
+          return 500;
+        }
+        return response;
+      })
+      .catch((error) => {
+        return 500;
+      });
+  }
+  async save_translation(translation_id){
+    return this.axios_object
+      .post(`/translate/save_translation?translation_id=${translation_id}`)
+      .then((response) => {
+        console.log(response);
         if (response.status !== 200) {
           return 500;
         }

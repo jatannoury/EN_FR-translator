@@ -3,26 +3,50 @@ import { BsTranslate } from "react-icons/bs";
 import React, { useState } from "react";
 import axiosInstance from "../tools/axios";
 import { toast } from "react-toastify";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 const HomeLeftContainer = ({
   setToggleRightContainer,
   setRightContainerCaller,
   toggleRightContainer,
   rightContainerCaller,
+  user_id,
 }) => {
   const [frenchText, setFrenchText] = useState("");
   const [englishText, setEnglishText] = useState("");
+  const [saveText, setSavedText] = useState(false);
+  const [translationId, setTranslationId] = useState("");
   const handleTranslate = (e) => {
-    axiosInstance.translate(englishText).then((res) => {
+    setSavedText(false);
+
+    const request_data = {
+      user_id: user_id,
+      fr_text: frenchText,
+      en_text: englishText,
+    };
+    axiosInstance.translate(request_data).then((res) => {
       if (res === 500) {
         toast.error("Server Error");
       } else {
-        setFrenchText(res.data);
+        setFrenchText(res.data["translated_sentence"]);
+        console.log("test", res.data);
+        setTranslationId(res.data["translation_id"]);
+        console.log("translationId", translationId);
       }
     });
   };
   const handleInputChange = (e) => {
     setEnglishText(e.target.value);
+  };
+  const handleSave = (e) => {
+    setSavedText(!saveText);
+    axiosInstance.save_translation(translationId).then((res) => {
+      if (res.status === 200) {
+        toast.success(res.data[0]["message"]);
+      } else {
+        toast.error("Server Error");
+      }
+    });
   };
   return (
     <>
@@ -53,6 +77,13 @@ const HomeLeftContainer = ({
               readOnly
               value={frenchText}
             ></textarea>
+            <div className="save_button" onClick={handleSave}>
+              {saveText === false ? (
+                <AiOutlineStar size={30} />
+              ) : (
+                <AiFillStar size={30} />
+              )}
+            </div>
           </div>
         </div>
         <HomeButtons

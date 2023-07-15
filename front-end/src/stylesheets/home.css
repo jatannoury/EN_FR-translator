@@ -205,3 +205,16 @@ textarea::placeholder {
   width: 20%;
   display: none;
 }
+.save_button{
+    color: #281191;
+    
+}
+.output_container {
+  position: relative;
+}
+
+.save_button {
+  position: absolute;
+  top: 2%;
+  left: 95%;
+}

@@ -1,14 +1,13 @@
 import "../stylesheets/home.css";
 import React, { useState } from "react";
-
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import HomeLeftContainer from "../components/HomeLeftContainer";
 
 const Home = () => {
   const [toggleRightContainer, setToggleRightContainer] = useState(false);
   const [rightContainerCaller, setRightContainerCaller] = useState("");
-  
-
+  const params = useParams();
   return (
     <div className="main_container home_page">
       <Header />
@@ -18,6 +17,7 @@ const Home = () => {
           setRightContainerCaller={setRightContainerCaller}
           toggleRightContainer={toggleRightContainer}
           rightContainerCaller={rightContainerCaller}
+          user_id={params.id}
         />
         <div
           className={`${
