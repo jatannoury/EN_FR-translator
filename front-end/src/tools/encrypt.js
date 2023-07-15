@@ -16,7 +16,7 @@ function encryptString(string, key) {
 
   return encryptedString;
 }
-
+console.log(encryptString("Hello", "abcdefghijklmnop"))
 module.exports={
   encryptString
 }

@@ -17,10 +17,6 @@ const SignUp = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    formData["password"] = encryptString(
-      formData["password"],
-      "abcdefghijklmnop"
-    );
     axiosInstance.register(formData).then((res) => {
       console.log("RES",res)
       if (res === 201) {

@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom, #f8eefa, #a174bb);
+  background-image: linear-gradient(to bottom, #f8eefa, #705cc9);
   height: 100%;
 }
 
@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 10%;
+  padding-top: 7%;
 }
 
 .signup_container label {
@@ -35,25 +36,25 @@ body {
   margin-bottom: 10px;
   font-family: Outfit, sans-serif;
   font-size: 20px;
-  color: #c99ee2;
+  color: #705cc9;
 }
 
 .signup_container input {
   height: 30px;
   border-radius: 7px;
-  border: 2px solid #c99ee2;
+  border: 2px solid #705cc9;
 }
 
 input {
   padding: 8px;
   outline: none;
-  color: #c99ee2;
+  color: #705cc9;
   font-size: 16px;
   width: 90%;
 }
 input::placeholder {
   padding-left: 2px;
-  color: #c99ee2;
+  color: #705cc9;
   opacity: 0.9;
   font-size: 16px;
 }
@@ -64,8 +65,7 @@ input:focus {
   width: 50%;
 }
 .sign_up {
-  padding: 70px 0 0px 0px;
-  color: #c99ee2;
+  color: #705cc9;
   margin: 0;
   font-family: Outfit, sans-serif;
 }
@@ -73,18 +73,18 @@ input:focus {
   padding-left: 10px;
 }
 .sing_up_icon {
-  color: #c99ee2;
+  color: #705cc9;
 }
 .row {
   display: flex;
-  margin-top: 50px;
+  margin-top: 5%;
   justify-content: space-between;
   gap: 20px;
   width: 85%;
 }
 .birthday {
   width: 90%;
-  color: #c99ee2;
+  color: #705cc9;
 }
 .radio-container {
   display: flex;
@@ -113,8 +113,8 @@ input[type="radio"]:checked {
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  border: 0px solid #c99ee2;
-  background-color: #c99ee2;
+  border: 0px solid #705cc9;
+  background-color: #705cc9;
   outline: none; /* Remove the default focus outline */
 }
 input[type="submit"] {
@@ -122,13 +122,13 @@ input[type="submit"] {
   background-color: white;
   margin-top: 10%;
   color: white;
-  background-color: #c99ee2;
+  background-color: #705cc9;
   margin-top: 20%;
 }
 
 input[type="submit"]:hover {
   background-color: white;
-  color: #c99ee2;
+  color: #705cc9;
   box-shadow: 10px 10px 50px rgba(201, 158, 226, 1);
 }
 .submit_row {
@@ -143,8 +143,16 @@ input[type="submit"]:hover {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.password_input:focus{
+  border-right: 2px solid #705cc9
+}
+.my-input:focus {
+  /* Add your desired styles here */
+  border: 2px solid blue;
+  background-color: lightgray;
+}
 .eye_icon {
-  border: 2px solid #c99ee2;
+  border: 2px solid #705cc9;
   height: 30px;
   border-left: none;
   border-top-right-radius: 7px;
@@ -153,12 +161,12 @@ input[type="submit"]:hover {
   align-items: center;
   justify-content: center;
   padding: 8px;
-  color:#c99ee2
+  color:#705cc9
 }
 
 .link_to_sign_in{
   text-decoration: none;
-  color:#c99ee2;
+  color:#705cc9;
   padding-top: 10px;
 }
 .link_to_sign_in:hover{

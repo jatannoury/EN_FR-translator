@@ -3,7 +3,8 @@ import { FaSignInAlt } from "react-icons/fa";
 import Input from "../components/Input";
 import axiosInstance from "../tools/axios";
 import { Link, useNavigate } from "react-router-dom";
-const SignUp = () => {
+import { toast } from "react-toastify";
+const SignIn = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -11,10 +12,16 @@ const SignUp = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosInstance.signIn(formData);
-    // navigate("/signIn");
-    console.log(formData)
-
+    axiosInstance.sign_in(formData).then((res) => {
+      if (res === 200) {
+        toast.success("Logged In!");
+        setTimeout(() => {
+          navigate("/Home");
+        }, 1000);
+      } else {
+        toast.error("Wrong Credentials");
+      }
+    });
   };
 
   return (
@@ -52,4 +59,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
