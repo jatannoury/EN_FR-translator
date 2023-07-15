@@ -6,8 +6,8 @@ const HomeButtons = ({
   setToggleRightContainer,
   setRightContainerCaller,
   rightContainerCaller,
+  handleTranslate,
 }) => {
-  console.log("TESTTTT");
   const handleHistory = (e) => {
     if (rightContainerCaller === "") {
       setToggleRightContainer(true);
@@ -42,7 +42,7 @@ const HomeButtons = ({
       </div>
       <div className="translate_button_container">
         <div className="button_holder">
-          <button className="translate_button">
+          <button className="translate_button" onClick={handleTranslate}>
             <HiSwitchHorizontal size={30} className="switch_languages" />
           </button>
         </div>

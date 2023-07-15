@@ -34,11 +34,24 @@ class Axios {
     return this.axios_object
       .post("/users/login", formData)
       .then((response) => {
-        console.log(response)
-        return response.status
+        console.log(response);
+        return response.status;
       })
       .catch((error) => {
         console.error(error);
+      });
+  }
+  async translate(input_text) {
+    return this.axios_object
+      .get(`/translate/en_fr?text=${input_text}`)
+      .then((response) => {
+        if (response.status !== 200) {
+          return 500;
+        }
+        return response;
+      })
+      .catch((error) => {
+        return 500;
       });
   }
 }

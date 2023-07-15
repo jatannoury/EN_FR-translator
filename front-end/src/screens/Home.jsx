@@ -7,6 +7,7 @@ import HomeLeftContainer from "../components/HomeLeftContainer";
 const Home = () => {
   const [toggleRightContainer, setToggleRightContainer] = useState(false);
   const [rightContainerCaller, setRightContainerCaller] = useState("");
+  
 
   return (
     <div className="main_container home_page">
